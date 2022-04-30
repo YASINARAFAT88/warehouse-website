@@ -4,7 +4,7 @@ import './Stock.css'
 const Stock = ({ stock }) => {
     const { name, img, description, price, supplier, quantity } = stock;
     return (
-        <div className=''>
+        <div className='shadow rounded'>
             <div className='stock'>
                 <img src={img} alt="" />
                 <h2>{name}</h2>
