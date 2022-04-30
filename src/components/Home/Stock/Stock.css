@@ -1,0 +1,10 @@
+.stock{
+    border: 1px solid orangered;
+    border-radius: 10px;
+   
+    text-align: center;
+}
+.stock img{
+    width: 100%;
+    border-radius: 10px;
+}
