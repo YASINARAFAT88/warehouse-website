@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const AllStocks = () => {
     const {AllStocksId} = useParams();
@@ -7,9 +7,11 @@ const AllStocks = () => {
         <div>
             <h2>AllStocks ${AllStocksId}</h2>
             <h2>AllStocks {AllStocksId}</h2>
-            <h2>AllStocks</h2>
-            <h2>AllStocks</h2>
-            <h2>AllStocks</h2>
+            <div className='text-center'>
+            <Link to='/checkout'>
+                <button className='btn btn-dark'>CheckOut</button>
+            </Link>
+            </div>
         </div>
     );
 };
