@@ -11,7 +11,7 @@ const Stoks = () => {
         .then(data => setStocks(data))
     },[])
     return (
-        <div>
+        <div id='stocks'>
             <h1 className='stocks-title'>Warehouse available stoks {stocks.length}</h1>
             <div className="stocks-container">
             {

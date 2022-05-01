@@ -6,7 +6,7 @@ import bag from './categories/download.png'
 
 const catagories = () => {
     return (
-        <div>
+        <div id='categories'>
             <h1 className='text-center text-dark mt-5'>Stocks Categories</h1>
             <section className="container categories my-5">
         <div className="row g-4">

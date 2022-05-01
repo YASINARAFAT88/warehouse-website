@@ -11,9 +11,9 @@ import lens from './shelf0.jpg'
 
 const Imgs = () => {
     return (
-        <div className='container mt-5'>
+        <div id='Images' className='container mt-5 '>
              <h1 className='text-center col-12 mx-auto mb-5'>Our Warehouse Some img</h1>
-            <div className="row border border-3 p-3">
+            <div className="row border border-3 p-3 shadow">
                 <div className="col-md-4 col-12 mx-auto">
                     <img className='img-fluid mb-3' width={'400px'} src={bottle} alt="" />
                     <img className='img-fluid' width={'400px'} src={stol} alt="" />

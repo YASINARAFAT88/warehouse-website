@@ -5,7 +5,7 @@ const Section = () => {
     return (
         <div>
              <section className="container-fluid">
-          <h1 className="text-center fw-bold py-5">Section Asked Questions</h1>
+          <h1 className="text-center fw-bold py-5">WareHouse Team</h1>
           <div className="row d-flex justify-content-center align-items-center my-3">
             <div className="col-lg-5">
             <img width="100%" src={img} alt="" />
