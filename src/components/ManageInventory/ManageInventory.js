@@ -2,7 +2,20 @@ import React from 'react';
 import useInventory from '../../hooks/useInventory/useInventory';
 
 const ManageInventory = () => {
-    const [stocks] = useInventory();
+    const [stocks, setStocks] = useInventory();
+    const handleDelete = id =>{
+        const proceed = window.confirm('Sure?');
+        if(proceed){
+            const url = `http://localhost:5000/products/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res =>res.json())
+            .then(data => console.log(data))
+            const remaining = stocks.filter(stock => stock._id !== id)
+            setStocks(remaining);
+        }
+    }
     return (
         <div>
             <h2 className='text-center fw-bold m-3'>Manage-Inventory</h2>
@@ -19,7 +32,7 @@ const ManageInventory = () => {
                 <h6 className='pe-3 ps-3'>Quantity: {item.quantity}</h6>
                 <h5 className='pe-3 ps-3'>Supplier: {item.supplier}</h5>
                 </div>
-                <button className='btn btn-light text-danger fw-bold m-3'>Delete</button>
+                <button onClick={()=> handleDelete(item._id)} className='btn btn-light text-danger fw-bold m-3'>Delete</button>
                 <button className='btn btn-light text-dark fw-bold m-3'>Update</button>
             </div>
         </div>

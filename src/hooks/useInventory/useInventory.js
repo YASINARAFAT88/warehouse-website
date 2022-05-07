@@ -8,6 +8,6 @@ const useInventory = () =>{
       .then(res => res.json())
       .then(data => setStocks(data))
   },[])
-  return [stocks]
+  return [stocks, setStocks]
 }
 export default useInventory;
