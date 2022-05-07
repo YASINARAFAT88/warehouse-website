@@ -12,6 +12,7 @@ import RequireAuth from './components/Login/RequireAuth/RequireAuth';
 import CheckOut from './components/CheckOut/CheckOut/CheckOut';
 import { createContext, useEffect, useState } from 'react';
 import ManageInventory from './components/ManageInventory/ManageInventory';
+import AddStock from './components/AddStock/AddStock';
 
 export const HooksContext = createContext('data')
 
@@ -43,6 +44,9 @@ function App() {
        </RequireAuth>}></Route>
        <Route path='/manageinventory' element={<RequireAuth>
          <ManageInventory></ManageInventory>
+       </RequireAuth>}></Route>
+       <Route path='/addstock' element={<RequireAuth>
+         <AddStock></AddStock>
        </RequireAuth>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
      </Routes>
