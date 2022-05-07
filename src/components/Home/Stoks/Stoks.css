@@ -9,6 +9,19 @@
 .stocks-container button{
     margin: 15px;
 }
+.review-btn{
+    width: 200px;
+    color: white;
+    font-size: 19px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.btn-div{
+    width: 200px;
+    margin: auto;
+    margin-bottom: 20px;
+    
+}
 /* .stocks-title{
     text-align: center;
 } */
