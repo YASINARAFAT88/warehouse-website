@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { HooksContext } from '../../../App';
 import Stock from '../Stock/Stock';
 import './Stoks.css'
 
 const Stoks = () => {
-    const [stocks, setStocks] = useState([]);
-
-    useEffect(()=>{
-        fetch('stocks.json')
-        .then(res => res.json())
-        .then(data => setStocks(data))
-    },[])
+    const stocks = useContext(HooksContext)
+    
     return (
         <div id='stocks'>
-            <h1 className='stocks-title'>Warehouse available stoks {stocks.length}</h1>
+            <h1 className='stocks-title text-center'>Warehouse available stoks</h1>
             <div className="stocks-container">
             {
-                stocks.map(stock => <Stock
-                key={stock.id}
+                stocks.slice(0, 6).map(stock => <Stock
+                key={stock._id}
                 stock={stock}
                 ></Stock>)
-            }
-            </div>
+            }  
+            </div>  
         </div>
     );
 };
-
 export default Stoks;

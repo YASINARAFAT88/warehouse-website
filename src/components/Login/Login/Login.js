@@ -1,13 +1,14 @@
 import { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 const Login = () => {
     const location = useLocation()
-
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     let from = location.state?.from?.pathname || "/"
 
     const [
@@ -36,6 +37,11 @@ const Login = () => {
     const handleSignUp = event =>{
         navigate('/signup')
    }
+   const handleForgetPass = async()=>{
+       const email = emailRef.current.value;
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
+   }
     return (
         <div className='container w-50 mx-auto mb-5 mt-5 rounded-3 shadow p-3 mb-5 bg-body rounded'>
             <h2 className='text-dark text-center'>Please login</h2>
@@ -49,15 +55,14 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
                 </Form.Group>
-                <Form.Group className="mb-3 text-dark" controlId="formBasicCheckbox">
-                    <Form.Check className='text-dark' type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="dark" type="submit">
+    
+                <Button className='w-100 fw-bold mt-2' variant="dark" type="submit">
                     Log in
                 </Button>
             </Form>
-            <p className='mt-3'>New to Warehouse? <Link onClick={handleSignUp} to='/signup' className='text-danger pe-auto text-decoration-none'>Please Sign Up</Link></p>
-            
+            <p className='mt-3'>New to Warehouse? <Link onClick={handleSignUp} to='/signup' className='text-primary pe-auto text-decoration-none'>Please Sign Up</Link></p>
+            <p className='mt-3'>Forget Password <Link onClick={handleForgetPass} to='/signup' className='text-primary pe-auto text-decoration-none'>reset Password</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

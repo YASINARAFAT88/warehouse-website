@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init'
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
 
@@ -11,19 +12,24 @@ const Register = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+        const [updateProfile, updating, updateError] = useUpdateProfile(auth)
 
-    const emailRef = useRef('')
-    const passwordRef = useRef('')
-    const navigate = useNavigate()
+        const nameRef = useRef('')
+        const emailRef = useRef('')
+        const passwordRef = useRef('')
+        const navigate = useNavigate()
 
-    const habdleSubmit = event =>{
+        const habdleSubmit = async event =>{
         event.preventDefault();
+        const name = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         console.log(email, password)
 
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({displayName: name});
+        navigate('/home')
     }
     const navigateLogin = event =>{
         navigate('/login')
@@ -37,7 +43,7 @@ const Register = () => {
             <Form onSubmit={habdleSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>Your Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Name" required/>
+                    <Form.Control ref={nameRef} type="text" placeholder="Enter Name" required/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -56,8 +62,8 @@ const Register = () => {
                 </Button>
             </Form>
             <p className='mt-3'>You have Warehouse account? <Link 
-            onClick={navigateLogin} to='/login' className='text-danger pe-auto text-decoration-none'>Please Login</Link></p>
-            
+            onClick={navigateLogin} to='/login' className='text-primary pe-auto text-decoration-none'>Please Login</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

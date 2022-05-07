@@ -9,9 +9,9 @@
 .stocks-container button{
     margin: 15px;
 }
-.stocks-title{
+/* .stocks-title{
     text-align: center;
-}
+} */
 
 @media screen and (max-width: 577px) {
     .stocks-container{
