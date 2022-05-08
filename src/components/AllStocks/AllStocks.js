@@ -5,7 +5,7 @@ const AllStocks = () => {
     const { AllStocksId } = useParams();
     const [products, setProducts] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/products/${AllStocksId}`;
+        const url = `https://frozen-ravine-68631.herokuapp.com/products/${AllStocksId}`;
 
         fetch(url)
             .then(res => res.json())

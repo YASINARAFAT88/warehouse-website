@@ -5,7 +5,7 @@ const AddStock = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/products`;
+        const url = `https://frozen-ravine-68631.herokuapp.com/products`;
         fetch(url, {
             method: 'POST',
             headers: {

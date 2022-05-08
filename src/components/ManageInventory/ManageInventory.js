@@ -6,7 +6,7 @@ const ManageInventory = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Sure?');
         if (proceed) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://frozen-ravine-68631.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
