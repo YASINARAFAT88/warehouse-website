@@ -1,0 +1,11 @@
+.containers{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+@media screen and (max-width: 577px) {
+    .containers{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

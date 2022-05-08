@@ -7,12 +7,12 @@ import auth from '../../../firebase.init';
 
 const Header = () => {
   const [user] = useAuthState(auth);
-  const handleSignOut = ()=>{
+  const handleSignOut = () => {
     signOut(auth)
   }
   return (
     <header>
-      <Navbar collapseOnSelect expand="lg" sticky="top" className="sticky-top"  bg="dark"  variant="dark">
+      <Navbar collapseOnSelect expand="lg" sticky="top" className="sticky-top" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to='/'>React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -30,24 +30,24 @@ const Header = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link as={Link} to="about">About</Nav.Link>
+              <Nav.Link as={Link} to="Blog">Blog</Nav.Link>
               {
                 user && <>
-                <Nav.Link as={Link} to="manageinventory">Manage-Inventory</Nav.Link>
+                  <Nav.Link as={Link} to="manageinventory">Manage-Inventory</Nav.Link>
                 </>
               }
               {
                 user && <>
-                <Nav.Link as={Link} to="addstock">Add-Stock</Nav.Link>
+                  <Nav.Link as={Link} to="addstock">Add-Stock</Nav.Link>
                 </>
               }
               {
                 user ?
-                    <button className='btn btn-link text-white text-decoration-none fw-bold' onClick={handleSignOut}>Sign Out</button>
-                :
-                <Nav.Link as={Link} to="login">
-                LogIn
-              </Nav.Link>}
+                  <button className='btn btn-link text-white text-decoration-none fw-bold' onClick={handleSignOut}>Log Out</button>
+                  :
+                  <Nav.Link as={Link} to="login">
+                    LogIn
+                  </Nav.Link>}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -20,8 +20,8 @@ const Stoks = () => {
                 }
             </div>
             <div className='btn-div'>
-                    <button onClick={() => naviGate('/manageinventory')} className='review-btn text-center fw-bold bg-dark'>See All Items</button>
-                </div>
+                <button onClick={() => naviGate('/manageinventory')} className='review-btn text-center fw-bold bg-dark'>See All Items</button>
+            </div>
         </div>
     );
 };

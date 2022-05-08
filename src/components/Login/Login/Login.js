@@ -16,13 +16,13 @@ const Login = () => {
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
-      
+
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const navigate = useNavigate()
-    const habdleSubmit = event =>{
+    const habdleSubmit = event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
@@ -30,32 +30,32 @@ const Login = () => {
 
         signInWithEmailAndPassword(email, password)
     }
-    if(user){
-        navigate(from, {replace: true});
+    if (user) {
+        navigate(from, { replace: true });
     }
-    
-    const handleSignUp = event =>{
+
+    const handleSignUp = event => {
         navigate('/signup')
-   }
-   const handleForgetPass = async()=>{
-       const email = emailRef.current.value;
+    }
+    const handleForgetPass = async () => {
+        const email = emailRef.current.value;
         await sendPasswordResetEmail(email);
         alert('Sent email');
-   }
+    }
     return (
         <div className='container w-50 mx-auto mb-5 mt-5 rounded-3 shadow p-3 mb-5 bg-body rounded'>
             <h2 className='text-dark text-center'>Please login</h2>
             <Form onSubmit={habdleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
+                    <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
                 </Form.Group>
-    
+
                 <Button className='w-100 fw-bold mt-2' variant="dark" type="submit">
                     Log in
                 </Button>
