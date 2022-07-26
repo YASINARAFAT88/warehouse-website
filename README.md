@@ -8,11 +8,14 @@ https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-YASINARAF
 
 ### `tecnologies uses`
 
-1.react js , 2. node js , 3. mongodb , 4. javascript , 5. css ,.
+Technology: React js, React router, React-Bootstrap, React-Firebase-Hooks, Firebase, Node js , Mongodb, Css
 
 ### `Features`
 
-Authentication Syste, Item Adding system, Item Delete System, view single item detail, .
+1.This is a WareHouse management system website.
+2. Users can add or delete items if they wish.
+3. Users can create a new account or sign in with a google account.
+4.This site is responsive mobile or desktop.
 
 ### `Need and clean Aurganized Code And Pure Hand Code`
 
